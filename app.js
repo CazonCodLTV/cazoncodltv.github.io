@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Cursor Effect
     const cursor = document.createElement("div");
     cursor.classList.add("cursor");
     document.body.appendChild(cursor);
@@ -23,5 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mouseup", () => {
         cursor.style.transform = "scale(1)";
         cursorTrail.style.transform = "scale(1)";
+    });
+
+    // Mobile Navbar Toggle
+    const toggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        toggle.classList.toggle("active");
     });
 });
