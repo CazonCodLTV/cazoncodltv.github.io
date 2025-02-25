@@ -1,0 +1,310 @@
+/* Reset & Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+body {
+    background-color: #121212;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff9800, #ff5722, #ff9800);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 3s infinite alternate;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff9800;
+}
+
+/* Hamburger Menu */
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    height: 24px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+        position: relative;
+        z-index: 2;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        background: #222;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.4s ease-in-out;
+    }
+
+    .nav-links.active {
+        height: 180px;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Hamburger Animation */
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Under Construction Section */
+.construction {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.construction h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff9800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.construction p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.construction img {
+    width: 70%;  /* Increased size */
+    max-width: 600px;  /* Allow it to be larger on bigger screens */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 152, 0, 0.3);
+}
+
+/* Center Content on Downloads Page */
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+/* About Page Boxed Content */
+.about-container {
+    max-width: 800px;
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 152, 0, 0.3);
+    margin: 60px auto;
+    text-align: center;
+}
+
+.about-container h1 {
+    color: #ff9800;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.about-container h2 {
+    color: #ff9800;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.about-container p {
+    color: #ddd;
+    text-align: left;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.about-container ul {
+    color: #ddd;
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.about-container ul li {
+    margin-bottom: 8px;
+}
+@keyframes fireGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 152, 0, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(255, 102, 0, 0.7), 0 0 40px rgba(255, 50, 0, 0.5); }
+    100% { box-shadow: 0 0 10px rgba(255, 152, 0, 0.4); }
+}
+
+.about-container {
+    max-width: 800px;
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 60px auto;
+    text-align: center;
+    animation: fireGlow 2s infinite alternate ease-in-out;
+}
+@keyframes blueGlow {
+    0% { box-shadow: 0 0 10px rgba(0, 132, 255, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.7), 0 0 40px rgba(0, 50, 255, 0.5); }
+    100% { box-shadow: 0 0 10px rgba(0, 132, 255, 0.4); }
+}
+
+.download-container {
+    max-width: 800px;
+    background: #222;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 60px auto;
+    text-align: center;
+    animation: blueGlow 2s infinite alternate ease-in-out;
+}
+
+.download-container h1 {
+    color: #00aaff;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.download-container p {
+    color: #ddd;
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.download-container ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.download-container ul li {
+    margin: 10px 0;
+}
+
+.download-container ul li a {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.download-container ul li a:hover {
+    color: #0080ff;
+}
+/* Custom Glowing Fire Cursor */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    background: rgba(255, 94, 0, 0.8); /* Fire Orange */
+    box-shadow: 0 0 15px rgba(255, 94, 0, 0.8);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s linear;
+}
+
+.cursor-trail {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    background: rgba(255, 140, 0, 0.3); /* Lighter Orange */
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.6);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out;
+}
+/* Fire Glow Animation for Home Page Image */
+.construction-img {
+    display: block;
+    margin: 20px auto;
+    width: 300px; /* Adjust as needed */
+    animation: fireGlow 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes fireGlow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(255, 94, 0, 0.8));
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 140, 0, 1));
+    }
+}
