@@ -126,13 +126,7 @@
 
     <script>
         function enterSite() {
-            document.getElementById("warning-overlay").classList.add("hidden");
-            document.body.style.transform = "scale(1.02)";
-            setTimeout(() => {
-                document.getElementById("warning-overlay").style.display = "none";
-                document.getElementById("message").style.display = "block";
-                document.body.style.transform = "scale(1)";
-            }, 1000);
+            window.location.href = "https://cazoncodltv.blogspot.com/";  // Redirects to the blog page
         }
 
         function leaveSite() {
@@ -140,8 +134,8 @@
         }
 
         document.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") enterSite();
-            if (event.key === "Escape") leaveSite();
+            if (event.key === "Enter") enterSite();  // Enter key triggers redirection to the blog
+            if (event.key === "Escape") leaveSite();  // Escape key triggers redirection to the main site
         });
     </script>
 </body>
