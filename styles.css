@@ -1,0 +1,809 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #ddd;
+    line-height: 1.6;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    margin: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar-logo .logo-text {
+    font-size: 2rem;
+    color: #fff;
+    background-image: linear-gradient(90deg, #ff7e5f, #feb47b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: gradientAnimation 3s infinite linear;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    font-size: 30px;
+    color: white;
+    display: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Navbar Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: #ff7e5f;
+    color: #fff;
+}
+
+/* Active Navbar Logo */
+.navbar .active .navbar-logo {
+    opacity: 0;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        height: 100vh; /* Full height of the viewport */
+        padding: 40px 20px; /* Adjust for better spacing */
+        flex-direction: column;
+        justify-content: center; /* Center the menu vertically */
+        align-items: center; /* Center the menu horizontally */
+        border-radius: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links li {
+        margin-bottom: 20px; /* More space between links */
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .navbar.active .nav-links {
+        display: flex;
+    }
+
+    .navbar.active .hamburger-menu {
+        transform: rotate(90deg);
+    }
+}
+
+/* Gradient Animation for Logo */
+@keyframes gradientAnimation {
+    0% {
+        background-image: linear-gradient(90deg, #ff7e5f, #feb47b);
+    }
+    50% {
+        background-image: linear-gradient(90deg, #6a11cb, #2575fc);
+    }
+    100% {
+        background-image: linear-gradient(90deg, #ff7e5f, #feb47b);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .nav-links li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    background-color: #ff7e5f;
+    color: #fff;
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+body.downloads-page {
+    padding-top: 80px; /* Adjust this based on your navbar height */
+}
+
+.navbar {
+    position: relative;
+    z-index: 10; /* Ensures navbar stays above the content */
+}
+
+.downloads-overview, .downloads {
+    z-index: 5; /* Ensures content is below the navbar */
+}
+
+
+/* Banner (Updated Size, Fixed Aspect Ratio) */
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.banner .banner-image {
+    width: 80%;  /* Adjusted to make it slightly bigger */
+    max-width: 3840px; /* Ensure it doesn't exceed the original size */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 844px; /* Limit to the original height */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Social Media Links */
+.social-media-links {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.social-media-links a {
+    text-decoration: none;
+    margin: 0 1.5rem;
+    color: #ddd;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.social-media-links a:hover {
+    color: #ff7e5f;
+}
+
+/* Embedded Media */
+.media {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    display: flex;
+    gap: 1rem; /* Space between videos */
+    width: 100%;
+    max-width: 1280px; /* Limit container width */
+    justify-content: center;
+}
+
+.video-container iframe {
+    width: 48%; /* Take up 48% of the container width for each video */
+    height: 315px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column; /* Stack videos vertically on mobile */
+        align-items: center;
+    }
+
+    .video-container iframe {
+        width: 90%; /* Take up 90% of the width on mobile */
+        height: 200px; /* Adjust video height for mobile */
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    color: #ddd;
+    margin-top: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        background-color: #1e1e1e;
+        padding: 1rem 0;
+        border-radius: 12px;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+    }
+
+    .banner .banner-image {
+        width: 90%;  /* Slightly smaller for mobile */
+        max-width: 3840px; /* Keep original size max limit */
+        height: auto;
+        max-height: 844px;
+    }
+
+    .social-media-links a {
+        font-size: 1.1rem;
+    }
+}
+/* Downloads Section */
+.downloads {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.downloads h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.download-buttons {
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    align-items: center;
+    gap: 2rem;
+}
+
+.download-btn {
+    width: 100%; /* Make the buttons wide */
+    max-width: 400px; /* Limit the maximum width of the button */
+    background-color: #ff7e5f;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added smooth transition for background and scale */
+    text-align: left; /* Align text to the left */
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between image and text */
+}
+
+/* Hover effect */
+.download-btn:hover {
+    background-color: #feb47b; /* Change color on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.download-img {
+    width: 40px; /* Adjust image size */
+    height: 40px;
+    object-fit: contain;
+}
+
+.download-btn span {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .download-btn {
+        width: 90%; /* Make the buttons take up more width on mobile */
+        max-width: 350px;
+    }
+}
+/* Remove default styles from the links */
+a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Keep the text color consistent with the rest of the page */
+}
+/* Download Overview Section */
+.downloads-overview {
+    background-color: #2b2b2b;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.downloads-overview h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.downloads-overview p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+/* Enhancing the download buttons section */
+.downloads {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.download-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    background-color: #444;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 80%;
+    max-width: 400px;
+    margin: 10px 0;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    background-color: #333; /* Original color */
+}
+
+.download-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.download-btn span {
+    font-size: 18px;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* Mobile Styling */
+@media screen and (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .download-btn {
+        width: 90%;
+    }
+
+    .download-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .downloads-overview h2 {
+        font-size: 20px;
+    }
+
+    .downloads-overview p {
+        font-size: 14px;
+    }
+}
+/* Animated Gradient Background for Downloads Page */
+body.downloads-page {
+    background: linear-gradient(45deg, #ff6b6b, #f06595, #9b59b6, #56c1e1);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* Glassmorphism Effect with Glossy Finish for Downloads Overview */
+.downloads-overview {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Apply blur to the background */
+    color: #000; /* Black text */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional border for extra effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow to the glass effect */
+    position: relative; /* For positioning the glossy effect */
+    overflow: hidden; /* To contain the glossy shine */
+}
+
+/* Glossy Shine Effect (gradient shine) */
+.downloads-overview::after {
+    content: ''; /* Create a new element for the shine */
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)); /* Glossy gradient */
+    transform: rotate(-30deg);
+    pointer-events: none; /* Ensure it doesn’t block interaction */
+    animation: shine 2s infinite; /* Create animation to move the glossy shine */
+}
+
+/* Animation to move the shine */
+@keyframes shine {
+    0% {
+        left: -120%;
+        top: -120%;
+    }
+    100% {
+        left: 120%;
+        top: 120%;
+    }
+}
+
+/* Glassmorphism Effect for Download Buttons */
+.download-btn {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Apply blur to the background */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 80%;
+    max-width: 400px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional border for extra effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow to the glass effect */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glossy Shine Effect for Buttons */
+.download-btn::after {
+    content: ''; /* Create a new element for the shine */
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0)); /* Glossy gradient */
+    transform: rotate(-30deg);
+    pointer-events: none; /* Ensure it doesn’t block interaction */
+    animation: shine 2s infinite; /* Create animation to move the glossy shine */
+}
+
+/* Hover effect for buttons */
+.download-btn:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+}
+
+/* Glass Effect for Buttons Image */
+.download-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+/* Make Text Black on Downloads Page */
+body.downloads-page {
+    color: #000; /* Set text color to black */
+}
+
+/* Make sure headings and button text are black as well */
+.downloads h2, .download-btn span {
+    color: #000; /* Ensure heading and button text are black */
+}
+
+/* Mobile Styling */
+@media screen and (max-width: 768px) {
+    .download-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .download-btn {
+        width: 90%;
+    }
+
+    .download-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .downloads-overview h2 {
+        font-size: 20px;
+    }
+
+    .downloads-overview p {
+        font-size: 14px;
+    }
+}
+/* About Section Styling */
+.about {
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.about p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-image {
+    margin-top: 30px;
+}
+
+.about-image img {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Make sure the text is legible */
+.about p {
+    color: #dcdcdc;
+}
+
+/* Add some spacing between paragraphs and image */
+.about p + .about-image {
+    margin-top: 40px;
+}
+/* About Page Custom Styles */
+body.about-page {
+    background: linear-gradient(135deg, #ff7a18, #af002d, #ff8c00);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.about p {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    padding: 10px;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.about-image img {
+    max-width: 300px;
+    border-radius: 10px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-image img:hover {
+    transform: scale(1.1);
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar .logo-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.nav-links li a {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+.nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.navbar .hamburger-menu {
+    color: white;
+    font-size: 2rem;
+    display: none; /* Keeps it hidden in desktop view */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .navbar .hamburger-menu {
+        display: block;
+    }
+
+    .navbar.active .nav-links {
+        display: flex;
+    }
+}
+.extras {
+    text-align: center;
+    padding: 3rem;
+    background-color: #f8f8f8; /* You can change this to any color you'd prefer */
+}
+
+.extras h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.extras p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* extras under construction delete later */
+.construction-notice {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+/* Hide Downloads Page on Mobile */
+@media (max-width: 768px) {
+    body.downloads-page {
+        display: none;
+    }
+
+    /* Optionally, show a message on mobile devices */
+    .mobile-warning {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: red;
+    }
+}
+/* Show Warning Only on Mobile */
+@media (max-width: 768px) {
+    body.downloads-page {
+        display: block;
+    }
+
+    .mobile-warning {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: red;
+        background-color: #fff;
+        border: 2px solid red;
+        border-radius: 8px;
+        margin: 10px;
+    }
+
+    /* Disable content for mobile users */
+    .downloads-overview,
+    .downloads {
+        display: none;
+    }
+}
+
+/* Ensure the warning is hidden on desktop */
+@media (min-width: 769px) {
+    .mobile-warning {
+        display: none;
+    }
+}
