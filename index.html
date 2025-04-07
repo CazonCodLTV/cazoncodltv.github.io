@@ -10,16 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NV41K6FYY3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NV41K6FYY3');
-</script>
 <body class="fade-in">
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2>Important Notice</h2>
+            <p>This website is now blocked in Israel.</p>
+        </div>
+    </div>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -60,6 +60,11 @@
         window.onload = function() {
             document.body.classList.add('fade-in');
         };
+
+        // Close popup when the close button is clicked
+        document.getElementById('close-btn').addEventListener('click', function() {
+            document.getElementById('popup').style.display = 'none';
+        });
     </script>
 </body>
 </html>
