@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="CazonCodLTV Extras">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extras - CazonCodLTV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #1b1b1b;
+            color: #f1f1f1;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #222222;
+            color: #ff69b4;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ff69b4;
+            flex-shrink: 0;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .extras {
+            max-width: 90%;
+            background-color: #333333; /* Dark background for the section */
+            padding: 20px;
+            border: 2px solid #ff69b4; /* Pink border */
+            /* Ensure no rounded corners */
+            border-radius: 0;
+        }
+
+        .extras h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ff69b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .extras p {
+            font-size: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .construction-notice {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ff6347;
+            background-color: #fff3cd;
+            border: 2px solid #ffecb3;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #222222;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 15px 10px;
+            font-size: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        .footer-button {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #ff69b4;
+            color: #1b1b1b;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            border: 2px solid #ff69b4;
+            font-size: 0.7rem;
+        }
+
+        .footer-button:hover {
+            background-color: #ff3385;
+        }
+
+        @media (min-width: 600px) {
+            header {
+                font-size: 2rem;
+            }
+
+            .extras h2 {
+                font-size: 2.2rem;
+            }
+
+            .extras p {
+                font-size: 1rem;
+            }
+
+            .construction-notice {
+                font-size: 1.1rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+
+            .footer-button {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="extras-page">
+
+    <header>
+        <div>CazonCodLTV - Extras</div>
+    </header>
+
+    <div class="content-wrapper">
+        <section class="extras">
+            <h2>Extras</h2>
+            <p>The Extras page includes random projects that may be unfinished. Unreleased channel videos will also be here.</p>
+            <p class="construction-notice"><a href="old.html" style="color: #ff6347; text-decoration: underline;"><strong>Old Page Project</strong></a></p>
+            <p class="construction-notice"><a href="oldindex.html" style="color: #ff6347; text-decoration: underline;"><strong>CazonCodLTV Old Design</strong></a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CazonCodLTV | All rights reserved.</p>
+        <a href="index.html" class="footer-button">Back to Home</a>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website in a Website</title>
+    <style>
+        /* Make the iframe take up the entire page */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* The bar at the top of the iframe */
+        .top-bar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: right;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Button inside the top bar */
+        .top-bar button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .top-bar button:hover {
+            background-color: #45a049;
+        }
+
+        /* Make the iframe take up the remaining screen space */
+        iframe {
+            width: 100%;
+            height: calc(100% - 50px); /* Adjust height to leave space for the bar */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <button onclick="window.location.href='extras.html'">Extras</button>
+    </div>
+    <iframe src="https://cazongames.github.io" title="Website in Website"></iframe>
+</body>
+</html>
