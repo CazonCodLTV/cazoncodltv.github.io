@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249265264924407"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Downloads & Videos | CazonCodLTV</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="description" content="Download tools, fixes, and watch featured videos from CazonCodLTV." />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV41K6FYY3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-NV41K6FYY3');
+    </script>
+
+    <style>
+        /* Reset and base styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Poppins', sans-serif;
+            background: #121212; /* Base background for the page */
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden; 
+        }
+
+        /* Accent and glassmorphism variables */
+        :root {
+            --accent: linear-gradient(135deg, #ff4eb5, #ff0099); 
+            --accent-color-fallback: #ff4eb5; 
+            --discord-blurple: #7289da;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --card-bg: rgba(30, 30, 30, 0.7); 
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Navbar styles */
+        header {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 2rem);
+            max-width: 1100px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            z-index: 1000;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem; 
+        }
+
+        nav ul li {
+            position: relative; 
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0.2rem; 
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent); 
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color-fallback); 
+        }
+
+        /* Hamburger menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+
+        /* General Section styles (for glassmorphism cards) */
+        section.content-section { 
+            max-width: 900px;
+            margin: 8rem auto 2rem; 
+            padding: 2rem; 
+            background: var(--glass-bg);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        body { 
+            opacity: 0;
+            animation: pageFadeIn 1s 0.5s forwards; 
+        }
+
+        @keyframes pageFadeIn {
+            to { opacity: 1; }
+        }
+
+
+        /* --- Styles for Downloads Page Content --- */
+        .content-section h2 { 
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: var(--accent-color-fallback); 
+        }
+
+        .downloads-intro, .videos-intro { /* Shared intro style */
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .download-items-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .download-item-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .download-item-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-color: var(--accent-color-fallback);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 20px var(--accent-color-fallback);
+        }
+
+        .download-item-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .download-item-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .download-item-description {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .download-item-cta {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: auto;
+        }
+
+        .download-item-card:hover .download-item-cta {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 78, 181, 0.3);
+        }
+
+        /* --- Styles for Featured Videos Section --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for videos */
+            gap: 25px; /* Space between video containers */
+            margin-top: 1.5rem;
+        }
+
+        .video-embed-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px; /* Rounded corners for the video container */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid var(--card-border); /* Subtle border */
+        }
+
+        .video-embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0; /* Remove default iframe border */
+        }
+
+
+        /* Fixed Help Box Styling */
+        .help-box-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            color: #eee;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 10px rgba(255, 78, 181, 0.1);
+            z-index: 900;
+            max-width: 280px;
+        }
+
+        .help-box-fixed h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color-fallback);
+            font-size: 1.1rem;
+        }
+        .help-box-fixed p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .help-box-fixed .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--accent-color-fallback);
+            transition: transform 0.2s ease;
+        }
+        .help-box-fixed .close-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .help-box-fixed a {
+            color: var(--accent-color-fallback);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        .help-box-fixed a:hover {
+            filter: brightness(1.2);
+        }
+        
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--glass-border);
+            margin-top: 4rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) { /* For mobile header/nav */
+            header {
+                width: calc(100% - 1rem);
+                top: 0.5rem;
+            }
+            nav ul {
+                position: absolute;
+                top: calc(100% + 0.5rem);
+                right: 0.5rem;
+                background: rgba(18, 18, 18, 0.98);
+                border: 1px solid var(--glass-border);
+                border-radius: 15px;
+                flex-direction: column;
+                width: 200px;
+                padding: 1rem;
+                display: none;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            .menu-toggle { 
+                display: flex;
+            }
+        }
+
+        @media (max-width: 600px) { /* For downloads page content & videos */
+            .content-section h2 {
+                font-size: 2rem;
+            }
+            .download-items-container, .video-grid { /* Apply to both grids */
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .download-item-card {
+                padding: 20px;
+            }
+            .help-box-fixed {
+                max-width: calc(100% - 40px);
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                text-align: center;
+            }
+            .help-box-fixed .close-btn {
+                top: 5px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">CazonCodLTV</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="https://youtube.com/@cazontecharena" target="_blank">YouTube</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="downloads-page-section" class="content-section"> 
+        <h2>Downloads</h2>
+        <p class="downloads-intro">Here you can find useful tools and fixes.</p>
+        
+        <div class="download-items-container"> 
+            <a href="https://drive.google.com/drive/folders/1rjqTmRIHrSMP8MziYdmoiS1-uvhL7dH8" class="download-item-card" target="_blank">
+                <img src="file1.png" alt="Steam Fix Icon" class="download-item-icon" /> 
+                <span class="download-item-title">Steam Fix</span>
+                <span class="download-item-description">For Windows 8/8.1</span>
+                <span class="download-item-cta">Download Now</span>
+            </a>
+            <a href="https://www.mediafire.com/file/1cg9uj6f0wxpdsk/DiscordSetup_for_windows_8.1-7.exe/file" class="download-item-card" target="_blank">
+                <img src="file2.png" alt="Discord Fix Icon" class="download-item-icon" />
+                <span class="download-item-title">Discord Fix</span>
+                <span class="download-item-description">For Windows 7/8</span>
+                <span class="download-item-cta">Download Now</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="featured-videos-section" class="content-section">
+        <h2>Featured Videos</h2>
+        <div class="video-grid">
+            <div class="video-embed-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/L1hHGbdOduw?si=dnLPKNjj5pl9qXH8" 
+                    title="YouTube video player 1" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-embed-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/XRMLYV3aRCE?si=J-kjD3Bg-bW9RANp" 
+                    title="YouTube video player 2" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="help-box-fixed" id="helpBox"> 
+        <span class="close-btn" onclick="document.getElementById('helpBox').style.display='none';">×</span>
+        <h4>Need Help?</h4>
+        <p>Contact me at: <a href="mailto:cazon753@gmail.com">cazon753@gmail.com</a></p>
+    </div>
+
+    <footer>
+        <p>© 2025 CazonCodLTV | All rights reserved.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('nav ul');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

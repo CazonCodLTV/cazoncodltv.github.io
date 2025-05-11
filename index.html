@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249265264924407"
+     crossorigin="anonymous"></script>
+    <meta name="description" content="Welcome to CazonCodLTV - your source for tech, gaming, and more!">
+    <meta name="keywords" content="CazonCodLTV, cazoncodltv youtube, Cazon Carter, tutorials, cazon">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CazonCodLTV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NV41K6FYY3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-NV41K6FYY3');
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">CazonCodLTV</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="https://youtube.com/@cazontecharena" target="_blank">YouTube</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <img src="banner.jpg" alt="CazonCodLTV Banner" style="width: 100%; height: auto; display: block;">
+        <div class="social-media-links">
+            <a href="https://steamcommunity.com/id/cazoncodltv" target="_blank" class="button-style">Follow me - Steam</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About CazonCodLTV</h2>
+        <p>Welcome to CazonCodLTV! Insightful tutorials, and fun stuff; Explore the site to find what you need!</p>
+    </section>
+
+    <section id="ai-experiments" class="slideshow-container ai-slideshow">
+        <h2>AI Experiments</h2>
+        
+        <div class="ai-slide">
+            <img src="ai1.jpg" alt="AI Experiment Image 1">
+            <p class="slide-caption">AI Generated Image 1</p>
+        </div>
+        <div class="ai-slide">
+            <video controls autoplay muted width="100%" style="max-height: 400px; border-radius: 10px;">
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="slide-caption">AI Generated Video 1</p>
+        </div>
+        <div class="ai-slide">
+            <img src="ai2.jpg" alt="AI Experiment Image 2">
+            <p class="slide-caption">AI Generated Image 2</p>
+        </div>
+        <div class="ai-slide">
+            <video controls autoplay muted width="100%" style="max-height: 400px; border-radius: 10px;">
+                <source src="video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="slide-caption">AI Generated Video 2</p>
+        </div>
+        <div class="ai-slide">
+            <img src="ai3.jpg" alt="AI Experiment Image 3">
+            <p class="slide-caption">AI Generated Image 3</p>
+        </div>
+        <div class="ai-slide">
+            <video controls autoplay muted width="100%" style="max-height: 400px; border-radius: 10px;">
+                <source src="video3.mp4" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+            <p class="slide-caption">AI Generated Video 3</p>
+        </div>
+        
+        <div class="slideshow-dots ai-slideshow-dots">
+            </div>
+    </section>
+
+    <div class="discord-contact-box">
+        <img src="your-discord-pfp.jpg" alt="CazonCodLTV Discord Profile" class="discord-pfp">
+        <div class="discord-text">
+            <strong>DM Me:</strong> CazonCodLTV
+            <br>
+            <span class="discord-tag">Discord</span>
+        </div>
+    </div>
+    
+    <section id="latest-work" class="slideshow-container latest-work-slideshow">
+        <h2>Latest Work</h2>
+
+        <div class="latest-work-slide">
+            <img src="work1.jpg" alt="Steam fix for Windows 7">
+            <p class="slide-caption">Steam fix for Windows 7</p>
+        </div>
+        <div class="latest-work-slide">
+            <img src="work2.jpg" alt="Steam fix for Windows 8/8.1"> 
+            <p class="slide-caption">Steam fix for Windows 8/8.1</p>
+        </div>
+        <div class="latest-work-slide">
+            <img src="work3.jpg" alt="Discord fix for Windows 7/8">
+            <p class="slide-caption">Discord fix for Windows 7/8</p>
+        </div>
+        
+        <div class="slideshow-dots latest-work-slideshow-dots">
+            </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>If you have any questions or want to collaborate, feel free to reach out via email at <a href="mailto:cazon753@gmail.com">cazon753@gmail.com</a>.</p>
+    </section>
+
+    <footer>
+        <p>© 2025 CazonCodLTV | All rights reserved.</p>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('nav ul');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // --- Glossy Hover Effect for #home section (JavaScript part) ---
+        // This JS is still here from previous steps. It won't have a visual effect
+        // if the corresponding CSS for #home::before is removed, which it was.
+        const homeSection = document.getElementById('home');
+        if (homeSection) {
+            homeSection.addEventListener('mousemove', function(e) {
+                const rect = homeSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                let xPercent = (x / rect.width) * 100;
+                let yPercent = (y / rect.height) * 100;
+                homeSection.style.setProperty('--shine-left', (xPercent * 1.2 - 60) + '%');
+                homeSection.style.setProperty('--shine-top', (yPercent * 1.2 - 60) + '%');
+            });
+        }
+
+        // --- Generic Slideshow Functionality ---
+        function initializeSlideshow(containerSelector, slideClassName, dotsClassName, isVideoSlideshow = false) {
+            let currentSlideIndex = 1;
+            let slideTimeoutInstance;
+            const slideshowContainer = document.querySelector(containerSelector);
+            if (!slideshowContainer) {
+                console.error("Slideshow container not found:", containerSelector);
+                return; 
+            }
+
+            const slidesInThisShow = slideshowContainer.getElementsByClassName(slideClassName);
+            const dotsContainerInThisShow = slideshowContainer.querySelector(dotsClassName);
+            let dotsInThisShow = [];
+
+            function createDotsForShow() {
+                if (slidesInThisShow.length > 0 && dotsContainerInThisShow) {
+                    dotsContainerInThisShow.innerHTML = ''; 
+                    dotsInThisShow = []; 
+                    for (let i = 0; i < slidesInThisShow.length; i++) {
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot');
+                        dot.addEventListener('click', () => showSpecificSlide(i + 1));
+                        dotsContainerInThisShow.appendChild(dot);
+                        dotsInThisShow.push(dot);
+                    }
+                }
+            }
+
+            function advanceSlide() {
+                showSpecificSlide(currentSlideIndex + 1);
+            }
+
+            function showSpecificSlide(n) {
+                clearTimeout(slideTimeoutInstance); // Clear any previous timeout
+                
+                // Pause all videos in this slideshow first
+                for (let j = 0; j < slidesInThisShow.length; j++) {
+                    const videoInSlide = slidesInThisShow[j].querySelector('video');
+                    if (videoInSlide && !videoInSlide.paused) {
+                        videoInSlide.pause();
+                    }
+                }
+
+                currentSlideIndex = n; 
+
+                if (currentSlideIndex > slidesInThisShow.length) { currentSlideIndex = 1 }
+                if (currentSlideIndex < 1) { currentSlideIndex = slidesInThisShow.length }
+
+                for (let i = 0; i < slidesInThisShow.length; i++) {
+                    slidesInThisShow[i].style.display = "none";
+                    slidesInThisShow[i].style.opacity = "0";
+                }
+                for (let i = 0; i < dotsInThisShow.length; i++) {
+                    dotsInThisShow[i].classList.remove("active");
+                }
+
+                const currentSlideElement = slidesInThisShow[currentSlideIndex - 1];
+                if (currentSlideElement) {
+                    currentSlideElement.style.display = "block";
+                    void currentSlideElement.offsetWidth; 
+                    currentSlideElement.style.opacity = "1";
+                    
+                    if (dotsInThisShow[currentSlideIndex - 1]) {
+                        dotsInThisShow[currentSlideIndex - 1].classList.add("active");
+                    }
+
+                    const video = currentSlideElement.querySelector('video');
+                    if (isVideoSlideshow && video) {
+                        video.currentTime = 0; // Rewind video
+                        video.play().catch(error => {
+                            console.warn("Video autoplay was prevented for:", video.src, error);
+                            // Fallback for browsers that block autoplay even when muted, or if not muted.
+                            // In this case, the 'ended' event won't fire to advance the slide.
+                            // So, we set a standard timeout for slides with videos that fail to play.
+                            slideTimeoutInstance = setTimeout(advanceSlide, 4000);
+                        });
+
+                        // Remove previous listener before adding a new one
+                        video.removeEventListener('ended', advanceSlide); 
+                        video.addEventListener('ended', advanceSlide, { once: true }); // Use {once: true}
+                        
+                        // Clear timeout if video starts playing, it will advance on 'ended'
+                        clearTimeout(slideTimeoutInstance); 
+                    } else {
+                        // For image slides or non-video slideshows
+                        slideTimeoutInstance = setTimeout(advanceSlide, 4000);
+                    }
+                } else {
+                     // Fallback if slide element not found (should not happen)
+                    slideTimeoutInstance = setTimeout(advanceSlide, 4000);
+                }
+            }
+            
+            if (slidesInThisShow.length > 0) {
+                createDotsForShow();
+                showSpecificSlide(currentSlideIndex); 
+            }
+        }
+
+        // Initialize "Latest Work" Slideshow (not a video slideshow)
+        initializeSlideshow('.latest-work-slideshow', 'latest-work-slide', '.latest-work-slideshow-dots', false);
+        
+        // Initialize "AI Experiments" Slideshow (this IS a video slideshow)
+        initializeSlideshow('.ai-slideshow', 'ai-slide', '.ai-slideshow-dots', true);
+
+
+        // --- Rain Effect Script ---
+        const rainContainer = document.createElement('div');
+        rainContainer.classList.add('rain');
+        document.body.appendChild(rainContainer);
+
+        function createRain() {
+            const drop = document.createElement('div');
+            drop.classList.add('drop');
+            const xPosition = Math.random() * window.innerWidth;
+            const duration = Math.random() * 2 + 2; 
+            drop.style.left = `${xPosition}px`;
+            drop.style.animationDuration = `${duration}s`;
+            drop.style.animationName = 'rainDrop';
+            rainContainer.appendChild(drop);
+            drop.addEventListener('animationend', () => {
+                if (rainContainer.contains(drop)) {
+                    rainContainer.removeChild(drop);
+                }
+            });
+        }
+        setInterval(createRain, 300);
+    </script>
+
+</body>
+</html>

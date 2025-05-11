@@ -1,0 +1,443 @@
+/* Reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden; 
+    /* Optional: Add some padding at the very bottom of the body if content feels too close to the edge */
+    /* padding-bottom: 2rem;  */
+}
+
+/* Pink accent and glassmorphism variables */
+:root {
+    --accent: linear-gradient(135deg, #ff4eb5, #ff0099); 
+    --accent-color-fallback: #ff4eb5; 
+    --discord-blurple: #7289da;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --scrollbar-bg: #202020;
+    --scrollbar-thumb: #333333;
+    --slide-content-height: 400px; 
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+    border: 2px solid var(--scrollbar-bg); 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color-fallback); 
+}
+html {
+    scrollbar-width: thin; 
+    scrollbar-color: var(--accent-color-fallback) var(--scrollbar-bg); 
+}
+
+
+/* Navbar styles */
+header {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 1100px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    z-index: 1000;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.8s ease-out;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; 
+}
+
+nav ul li {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 0.6s forwards;
+    position: relative; 
+}
+
+nav ul li:nth-child(1) { animation-delay: 0.3s; }
+nav ul li:nth-child(2) { animation-delay: 0.5s; }
+nav ul li:nth-child(3) { animation-delay: 0.7s; }
+nav ul li:nth-child(4) { animation-delay: 0.9s; }
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0.5rem 0.2rem; 
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent); 
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color-fallback); 
+}
+
+
+/* Hamburger menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        background: rgba(18, 18, 18, 0.95); 
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li a::after { 
+        left: 0;
+        transform: none;
+        background: var(--accent-color-fallback); 
+    }
+    nav ul li a:hover::after {
+        width: 70%; 
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Section styles */
+section {
+    max-width: 800px;
+    margin: 6rem auto 2rem; /* Default bottom margin for sections */
+    padding: 2rem; 
+    background: var(--glass-bg);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSection 1s forwards; 
+}
+
+/* Specific adjustments for the #home section */
+#home {
+    padding-top: 2rem; 
+    padding-left: 2rem; 
+    padding-right: 2rem; 
+    padding-bottom: 1rem; 
+    margin-bottom: 2rem; 
+    position: relative; 
+}
+
+
+#home .social-media-links a.button-style { 
+    display: inline-block;
+    background: var(--accent);
+    color: #fff; 
+    padding: 10px 25px;
+    border-radius: 25px; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: none; 
+    margin-top: 10px; 
+}
+
+#home .social-media-links a.button-style:hover {
+    transform: translateY(-3px) scale(1.03); 
+    box-shadow: 0 6px 20px rgba(255, 78, 181, 0.4); 
+    text-decoration: none; 
+}
+
+.social-media-links {
+    text-align: center;
+    margin-top: 15px; 
+    margin-bottom: 1rem; 
+}
+
+.social-media-links a:not(.button-style) { 
+    font-size: 1.1rem;
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease; 
+}
+
+.social-media-links a:not(.button-style):hover {
+    filter: brightness(1.2);
+    text-decoration: none;
+}
+
+
+h1, h2 {
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+a:not(.button-style):not(nav ul li a) { 
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none; 
+}
+a:not(.button-style):not(nav ul li a):hover {
+    filter: brightness(1.2); 
+}
+
+/* MODIFIED: Footer Styling */
+footer {
+    text-align: center;
+    padding: 2rem; 
+    color: #999; 
+    font-size: 0.85rem; 
+    border-top: 1px solid var(--glass-border); 
+    margin-top: 5rem; 
+    margin-bottom: 1rem; 
+}
+
+
+/* Animations */
+@keyframes slideDown {
+    from { transform: translate(-50%, -150%); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInSection { 
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* STYLED DISCORD CONTACT BOX */
+.discord-contact-box {
+    display: flex;
+    align-items: center;
+    background: var(--glass-bg); 
+    border: 1px solid var(--glass-border); 
+    backdrop-filter: blur(10px); 
+    color: #fff;
+    border-radius: 12px; 
+    padding: 15px 25px; 
+    margin: 30px auto; 
+    max-width: 320px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 2px 8px rgba(255, 78, 181, 0.1); 
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.discord-contact-box:hover {
+    transform: translateY(-5px) scale(1.02); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25), 0 4px 15px rgba(255, 78, 181, 0.2); 
+}
+.discord-contact-box .discord-pfp { 
+    width: 55px; height: 55px; border-radius: 50%; margin-right: 20px; object-fit: cover;
+    border: 3px solid transparent; background-image: var(--accent); background-origin: border-box; 
+    background-clip: content-box, border-box; box-shadow: 0 0 10px rgba(255, 78, 181, 0.3); 
+    transition: transform 0.3s ease;
+}
+.discord-contact-box:hover .discord-pfp { transform: scale(1.1); }
+.discord-contact-box .discord-text { font-size: 1rem; line-height: 1.4; }
+.discord-contact-box .discord-text strong { font-weight: 500; display: block; margin-bottom: 4px; }
+.discord-contact-box .discord-tag {
+    display: inline-block; background-color: var(--discord-blurple); color: #fff; font-weight: 500;
+    font-size: 0.75rem; padding: 3px 8px; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.5px; 
+}
+
+/* Rain Styles */
+@keyframes rain { to { transform: translateY(100vh); } }
+.rain { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; overflow: hidden; z-index: 9999; }
+.drop { position: absolute; width: 2px; height: 10px; background-color: rgba(255, 255, 255, 0.8); animation: rain linear infinite; opacity: 0.7; }
+.drop:nth-child(odd) { background-color: rgba(255, 255, 255, 0.9); }
+@keyframes rainDrop { from { transform: translateY(-100vh); opacity: 0.8; } to { transform: translateY(100vh); opacity: 0; } }
+
+
+/* General Slideshow Container Styling */
+.slideshow-container {
+    position: relative; 
+    max-width: 800px; 
+    margin: 2rem auto; 
+    text-align: center;
+    padding-bottom: 1rem; /* MODIFIED: Added padding to the bottom of the slideshow container */
+}
+
+/* General Slide Styling (applies to all slideshows unless overridden) */
+.slideshow-container .slide, 
+.slideshow-container .latest-work-slide,
+.slideshow-container .ai-slide {
+    display: none; 
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
+    height: var(--slide-content-height); 
+    border-radius: 10px; 
+    overflow: hidden; 
+    background-color: #1a1a1a; 
+    position: relative; /* Ensure caption is positioned relative to this */
+}
+
+.slideshow-container .slide img, 
+.slideshow-container .latest-work-slide img,
+.slideshow-container .ai-slide img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    display: block; 
+}
+
+/* Styling for videos within slides */
+.slideshow-container .ai-slide video { 
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    display: block; 
+}
+
+
+.slide-caption { 
+    color: #ddd;
+    font-size: 0.95rem; /* MODIFIED: Slightly smaller caption text */
+    padding: 10px 15px; /* MODIFIED: More horizontal padding, slightly more vertical */
+    background-color: rgba(0,0,0,0.6); /* MODIFIED: Slightly darker caption background */
+    width: 100%; 
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Slideshow Dot Indicators Styling (generic for all slideshows) */
+.slideshow-dots {
+    text-align: center;
+    padding-top: 20px; /* MODIFIED: Increased space between slide content (and its caption) and dots */
+    margin-bottom: 10px; /* MODIFIED: Increased space below dots before end of container */
+    position: relative; 
+    z-index: 15; 
+}
+
+.slideshow-dots .dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slideshow-dots .dot:hover {
+    background-color: rgba(255, 255, 255, 0.6); 
+    transform: scale(1.1);
+}
+.slideshow-dots .dot.active {
+    background-image: var(--accent); 
+    background-color: var(--accent-color-fallback); 
+    transform: scale(1.2); 
+}
+
+
+/* Hide Slideshow Navigation Arrows (if globally hidden) */
+.slideshow-container .prev, 
+.slideshow-container .next {
+    display: none; 
+}
+
+/* About Section Specifics */
+#about {} 
+#about h2 {
+    text-align: center; 
+    margin-bottom: 1.5rem; 
+}
+#about p {
+    font-size: 1.05rem; 
+    line-height: 1.7; 
+    margin-bottom: 1rem; 
+    text-align: justify; 
+}
+#about p:last-child { margin-bottom: 0; }
