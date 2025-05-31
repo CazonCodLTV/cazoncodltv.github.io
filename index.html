@@ -54,46 +54,6 @@
         <p>Welcome to CazonCodLTV! Insightful tutorials, and fun stuff; Explore the site to find what you need!</p>
     </section>
 
-    <section id="ai-experiments" class="slideshow-container ai-slideshow">
-        <h2>AI Experiments</h2>
-        
-        <div class="ai-slide">
-            <img src="ai1.jpg" alt="AI Experiment Image 1">
-            <p class="slide-caption">AI Generated Image 1</p>
-        </div>
-        <div class="ai-slide">
-            <video controls autoplay muted width="100%" style="max-height: 400px; border-radius: 10px;">
-                <source src="video1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p class="slide-caption">AI Generated Video 1</p>
-        </div>
-        <div class="ai-slide">
-            <img src="ai2.jpg" alt="AI Experiment Image 2">
-            <p class="slide-caption">AI Generated Image 2</p>
-        </div>
-        <div class="ai-slide">
-            <video controls autoplay muted width="100%" style="max-height: 400px; border-radius: 10px;">
-                <source src="video2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p class="slide-caption">AI Generated Video 2</p>
-        </div>
-        <div class="ai-slide">
-            <img src="ai3.jpg" alt="AI Experiment Image 3">
-            <p class="slide-caption">AI Generated Image 3</p>
-        </div>
-        <div class="ai-slide">
-            <video controls autoplay muted width="100%" style="max-height: 400px; border-radius: 10px;">
-                <source src="video3.mp4" type="video/mp4"> Your browser does not support the video tag.
-            </video>
-            <p class="slide-caption">AI Generated Video 3</p>
-        </div>
-        
-        <div class="slideshow-dots ai-slideshow-dots">
-            </div>
-    </section>
-
     <div class="discord-contact-box">
         <img src="your-discord-pfp.jpg" alt="CazonCodLTV Discord Profile" class="discord-pfp">
         <div class="discord-text">
@@ -261,9 +221,6 @@
         // Initialize "Latest Work" Slideshow (not a video slideshow)
         initializeSlideshow('.latest-work-slideshow', 'latest-work-slide', '.latest-work-slideshow-dots', false);
         
-        // Initialize "AI Experiments" Slideshow (this IS a video slideshow)
-        initializeSlideshow('.ai-slideshow', 'ai-slide', '.ai-slideshow-dots', true);
-
 
         // --- Rain Effect Script ---
         const rainContainer = document.createElement('div');
