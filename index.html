@@ -13,10 +13,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
+        :root {
+            --alert-banner-height: 48px; /* Approximate height of the alert banner */
+        }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a; /* Slightly off-black for a softer look */
             color: #e5e7eb; /* Light gray for text */
+            padding-top: calc(var(--alert-banner-height) + 80px); /* Adjust padding for banner + header height */
+            /* The 80px is an estimation for the header's height (including its internal padding) */
         }
         .hero-bg {
             background-image: url('image.jpg');
@@ -58,9 +63,117 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Fullscreen Warning Styles with Animations */
+        .warning-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden; /* Use visibility instead of display for transitions */
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        }
+
+        .warning-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .warning-modal {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            color: #e5e7eb;
+            transform: translateY(-20px); /* Start slightly above center */
+            opacity: 0; /* Start hidden */
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        .warning-overlay.show .warning-modal {
+            opacity: 1;
+            transform: translateY(0); /* Slide into view */
+        }
+
+        /* Alert Banner Styles */
+        .alert-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ef4444; /* Red for urgency */
+            color: white;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            font-weight: 500;
+            z-index: 999; /* Below the full-screen warning but above other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            line-height: 1.5rem; /* Ensure consistent height */
+            height: var(--alert-banner-height); /* Set height using CSS variable */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem; /* Space between text and button */
+        }
+        .alert-banner button {
+            background-color: #fff;
+            color: #ef4444;
+            padding: 0.3rem 0.8rem;
+            border-radius: 0.375rem; /* Tailwind 'rounded-md' */
+            font-weight: 600; /* Tailwind 'font-semibold' */
+            font-size: 0.875rem; /* Tailwind 'text-sm' */
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .alert-banner button:hover {
+            background-color: #fca5a5; /* Tailwind 'red-300' */
+            color: #be123c; /* Tailwind 'red-700' */
+        }
+
+        /* Header Positioning */
+        #header {
+            top: var(--alert-banner-height); /* Position header below the alert banner */
+            z-index: 900; /* Ensure header is below warning, but above main content */
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <div class="alert-banner">
+        <p>Update: My YouTube channel is still down. Working to resolve it ASAP!</p>
+        <a href="#updates-section">
+            <button>Recent Updates</button>
+        </a>
+    </div>
+
+    <div id="youtube-warning" class="warning-overlay">
+        <div id="warning-modal-content" class="warning-modal">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Important Notice!</h2>
+            <p class="text-lg mb-6">
+                My YouTube channel has been removed. I am actively working to resolve this issue and restore my content.
+            </p>
+            <p class="text-md mb-8">
+                If you are a fan or need to reach out to me: 
+                <a href="mailto:cazon753@gmail.com" class="text-sky-400 hover:underline font-semibold">cazon753@gmail.com</a>.
+            </p>
+            <button id="warning-ok-button" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-sky-500/30">
+                OK
+            </button>
+        </div>
+    </div>
 
     <header id="header" class="fixed top-0 left-0 right-0 z-50">
         <nav class="container mx-auto px-6 py-4">
@@ -75,7 +188,7 @@
                         <span class="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-sky-400 transition-transform duration-300 group-hover:scale-x-100"></span>
                     </a>
                     <a href="downloads.html" class="text-gray-300 transition-colors hover:text-white">Downloads</a>
-                    <a href="https://www.youtube.com/@cazontecharena" target="_blank" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-lg transition-all duration-300 shadow-lg shadow-sky-500/20">
+                    <a href="#" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-lg transition-all duration-300 shadow-lg shadow-sky-500/20 youtube-link">
                         YouTube
                     </a>
                 </div>
@@ -91,7 +204,7 @@
              <div id="mobile-menu" class="hidden md:hidden mt-2 glass-effect rounded-xl p-4">
                 <a href="#home" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700 rounded-lg">Home</a>
                 <a href="downloads.html" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700 rounded-lg">Downloads</a>
-                <a href="https://www.youtube.com/@cazontecharena" target="_blank" class="block mt-2 text-center bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300">
+                <a href="#" class="block mt-2 text-center bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300 youtube-link">
                     YouTube
                 </a>
             </div>
@@ -111,49 +224,20 @@
                     <a href="downloads.html" class="w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-sky-500/30">
                         Downloads
                     </a>
-                    <a href="https://www.youtube.com/@cazontecharena" target="_blank" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    <a href="#" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 youtube-link">
                         Subscribe on YouTube
                     </a>
                 </div>
             </div>
         </section>
 
-        <section id="videos" class="py-20 md:py-32 bg-black">
+        <section id="updates-section" class="py-20 md:py-32 bg-black text-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold">Popular Content</h2>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card-hover glass-effect rounded-2xl overflow-hidden group">
-                        <img src="work1.jpg" alt="work1" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-sm text-sky-400">Windows 7 / Steam</span>
-                            <h3 class="text-xl font-bold mt-2 text-white">Fix Steam on Windows 7 - NEW 2025 Tutorial</h3>
-                            <p class="text-gray-400 mt-3 text-sm">Get Steam running perfectly on older systems. Tested and working!</p>
-                            <a href="https://www.youtube.com/watch?v=L1hHGbdOduw&t=2s" class="mt-4 inline-block text-sky-400 font-semibold group-hover:underline">Watch Video →</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover glass-effect rounded-2xl overflow-hidden group">
-                        <img src="work2.jpg" alt="work2" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-sm text-sky-400">Windows 8/8.1</span>
-                            <h3 class="text-xl font-bold mt-2 text-white">Fix Steam on Windows 8.1 - 2025 Latest</h3>
-                            <p class="text-gray-400 mt-3 text-sm">Learn how to get Steam running again on Windows 8 or 8.1! Tested and working.</p>
-                             <a href="https://www.youtube.com/watch?v=XRMLYV3aRCE" class="mt-4 inline-block text-sky-400 font-semibold group-hover:underline">Watch Video →</a>
-                        </div>
-                    </div>
-
-                    <div class="card-hover glass-effect rounded-2xl overflow-hidden group">
-                        <img src="work3.jpg" alt="work3.jpg" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-sm text-sky-400">Windows 7 & 8.1</span>
-                            <h3 class="text-xl font-bold mt-2 text-white">Discord for Windows 7/8.1 2025</h3>
-                            <p class="text-gray-400 mt-3 text-sm">Getting Discord working again on older systems after Discord's EOL decision.</p>
-                             <a href="https://www.youtube.com/watch?v=s_4vQcdwnHo" class="mt-4 inline-block text-sky-400 font-semibold group-hover:underline">Watch Video →</a>
-                        </div>
-                    </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Recent Updates</h2>
+                <div class="max-w-2xl mx-auto text-gray-300 space-y-6">
+                    <p><strong>June 26, 2025:</strong> Reponse from YouTube was useless (as expected). Waiting for them to review my appeal.</p>
+                    <p><strong>June 26, 2025:</strong> Noticed channel was removed by YouTube. I'm pretty confident that I most likely will not get the channel back, but we will have to see. I have reached out to @TeamYoutube on Twitter/X.</p>
+                    <p>More updates will be posted here as they become available.</p>
                 </div>
             </div>
         </section>
@@ -191,7 +275,7 @@ On this website, you'll find resources related to the content I create, tech I r
                     <p class="text-sm text-gray-500 mt-2">© 2025 CazonCodLTV. All Rights Reserved.</p>
                 </div>
                 <div class="flex mt-6 md:mt-0 space-x-6">
-                    <a href="https://www.youtube.com/c/CazonCodLTV" target="_blank" class="text-gray-400 hover:text-sky-400 transition-colors">
+                    <a href="#" class="text-gray-400 hover:text-sky-400 transition-colors youtube-link">
                         <span class="sr-only">YouTube</span>
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 0 1-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 0 1-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 0 1 1.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418ZM15.197 12 10 14.828V9.172L15.197 12Z" clip-rule="evenodd" />
@@ -227,6 +311,38 @@ On this website, you'll find resources related to the content I create, tech I r
             } else {
                 navContent.classList.remove('nav-scrolled');
             }
+        });
+
+        // YouTube Warning Logic with Animations
+        const youtubeWarning = document.getElementById('youtube-warning');
+        const warningModalContent = document.getElementById('warning-modal-content'); // Get the modal content
+        const warningOkButton = document.getElementById('warning-ok-button');
+        const youtubeLinks = document.querySelectorAll('.youtube-link');
+
+        function showWarning() {
+            youtubeWarning.classList.add('show');
+            warningModalContent.classList.add('show');
+        }
+
+        function hideWarning() {
+            youtubeWarning.classList.remove('show');
+            warningModalContent.classList.remove('show');
+        }
+
+        // Show warning on page load
+        showWarning();
+
+        // Hide warning when OK button is clicked
+        warningOkButton.addEventListener('click', () => {
+            hideWarning();
+        });
+
+        // Prevent YouTube links from navigating and show warning instead
+        youtubeLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Stop the default link behavior
+                showWarning(); // Show the warning
+            });
         });
 
     </script>
