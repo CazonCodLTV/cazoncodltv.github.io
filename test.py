@@ -12,13 +12,16 @@ while True:
         print("Stopped.")
         break
 
-    # pick random text
+    # Pick a random text
     text = random.choice(texts)
 
-    # copy to clipboard
+    # Copy to clipboard
     pyperclip.copy(text)
 
-    # paste
+    # Paste
     keyboard.press_and_release("ctrl+v")
+
+    # Press Enter (new line)
+    keyboard.press_and_release("enter")
 
     time.sleep(0.05)
