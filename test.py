@@ -21,7 +21,8 @@ while True:
     # Paste
     keyboard.press_and_release("ctrl+v")
 
-    # Press Enter (new line)
+    # Explicitly press Enter
     keyboard.press_and_release("enter")
 
+    # Optional small delay to prevent overlap
     time.sleep(0.05)
