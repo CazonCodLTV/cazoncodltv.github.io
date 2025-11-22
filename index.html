@@ -1,58 +1,86 @@
+<!-- Basic HTML page to display the Python script so it can be copied easily -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Copy Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Python Script</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        button { margin-top: 10px; padding: 10px 20px; background: #0078ff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #005fcc; }
+    </style>
 </head>
 <body>
-<pre>
-import ctypes
-import time
-import random
+    <div class="container">
+        <h2>Random Copy-Paste Python Script</h2>
+        <p>Click below to copy the script:</p>
 
-# Random strings to paste
+        <pre id="code">
+import pyautogui
+import random
+import pyperclip
+import time
+import ctypes
+
 texts = ["text1", "text2", "text3", "text4"]
 
-# Windows key constants
-VK_CONTROL = 0x11
-VK_V = 0x56
-VK_F4 = 0x73
-
-# GetAsyncKeyState reads if a key is pressed
-GetKeyState = ctypes.windll.user32.GetAsyncKeyState
-
-# Function to simulate Ctrl+V
-def ctrl_v():
-    ctypes.windll.user32.keybd_event(VK_CONTROL, 0, 0, 0)
-    ctypes.windll.user32.keybd_event(VK_V, 0, 0, 0)
-    ctypes.windll.user32.keybd_event(VK_V, 0, 2, 0)
-    ctypes.windll.user32.keybd_event(VK_CONTROL, 0, 2, 0)
-
-# Function to copy a chosen text to clipboard
-def set_clipboard(text):
-    ctypes.windll.user32.OpenClipboard(0)
-    ctypes.windll.user32.EmptyClipboard()
-    ctypes.windll.user32.SetClipboardData(1, ctypes.c_wchar_p(text))
-    ctypes.windll.user32.CloseClipboard()
+# Windows API for key detection
+user32 = ctypes.WinDLL('user32', use_last_error=True)
 
 print("Running... Press F4 to stop.")
 
-while True:
-    # Stop when F4 is pressed
-    if GetKeyState(VK_F4):
-        print("Stopped.")
-        break
+STOP_KEY = 0x73  # F4 virtual-key code
 
-    # Pick a random text
-    choice = random.choice(texts)
+def is_key_pressed(vk):
+    return user32.GetAsyncKeyState(vk) & 0x8000
 
-    # Put it into clipboard
-    set_clipboard(choice)
+try:
+    while True:
+        if is_key_pressed(STOP_KEY):
+            print("Stopped.")
+            break
+        chosen = random.choice(texts)
+        pyperclip.copy(chosen)
+        pyautogui.hotkey('ctrl', 'v')
+        time.sleep(0.5)
+except KeyboardInterrupt:
+    print("Stopped manually.")")")")")
+        </pre>
 
-    # Paste it
-    ctrl_v()
+        <button onclick="copyCode()">Copy Code</button>
+    </div>
 
-    time.sleep(0.05)   # small delay (optional)
-</pre>
+    <script>
+        function copyCode() {
+            const code = document.getElementById('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied!');
+            });
+        }
+    </script>
 </body>
 </html>
+
+import keyboard
+import random
+import pyperclip
+import time
+
+texts = ["text1", "text2", "text3", "text4"]
+
+print("Running... Press F4 to stop.")
+
+try:
+    while True:
+        if keyboard.is_pressed('f4'):
+            print("Stopped.")
+            break
+        chosen = random.choice(texts)
+        pyperclip.copy(chosen)
+        keyboard.write(chosen)
+        time.sleep(0.5)
+except KeyboardInterrupt:
+    print("Stopped manually.")
