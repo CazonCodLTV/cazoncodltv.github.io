@@ -19,26 +19,42 @@
         <p>Click below to copy the script:</p>
 
         <pre id="code">
-import keyboard
+import pyautogui
 import random
 import pyperclip
 import time
+import threading
+import keyboard  # only used for F4 detection; if not installed, remove this line and use another stop method
 
 texts = ["text1", "text2", "text3", "text4"]
 
 print("Running... Press F4 to stop.")
+stop_flag = False
+
+def check_stop():
+    global stop_flag
+    while True:
+        try:
+            if keyboard.is_pressed('f4'):
+                stop_flag = True
+                break
+        except:
+            pass
+        time.sleep(0.05)
+
+threading.Thread(target=check_stop, daemon=True).start()
 
 try:
     while True:
-        if keyboard.is_pressed('f4'):
+        if stop_flag:
             print("Stopped.")
             break
         chosen = random.choice(texts)
         pyperclip.copy(chosen)
-        keyboard.write(chosen)
+        pyautogui.hotkey('ctrl', 'v')
         time.sleep(0.5)
 except KeyboardInterrupt:
-    print("Stopped manually.")")")
+    print("Stopped manually.")")")")
         </pre>
 
         <button onclick="copyCode()">Copy Code</button>
