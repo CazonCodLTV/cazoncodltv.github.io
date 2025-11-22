@@ -19,28 +19,7 @@
         <p>Click below to copy the script:</p>
 
         <pre id="code">
-<!-- Basic HTML page to display the Python script so it can be copied easily -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copy Python Script</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-        .container { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; }
-        button { margin-top: 10px; padding: 10px 20px; background: #0078ff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #005fcc; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Random Copy-Paste Python Script</h2>
-        <p>Click below to copy the script:</p>
-
-        <pre id="code">
-from pynput import keyboard as kb
+import keyboard
 import random
 import pyperclip
 import time
@@ -49,31 +28,17 @@ texts = ["text1", "text2", "text3", "text4"]
 
 print("Running... Press F4 to stop.")
 
-stop_flag = False
-
-def on_press(key):
-    global stop_flag
-    if key == kb.Key.f4:
-        stop_flag = True
-        return False
-
-listener = kb.Listener(on_press=on_press)
-listener.start()
-
 try:
     while True:
-        if stop_flag:
+        if keyboard.is_pressed('f4'):
             print("Stopped.")
             break
         chosen = random.choice(texts)
         pyperclip.copy(chosen)
-        time.sleep(0.1)
-        # simulate typing
-        for ch in chosen:
-            kb.Controller().type(ch)
+        keyboard.write(chosen)
         time.sleep(0.5)
 except KeyboardInterrupt:
-    print("Stopped manually.")")
+    print("Stopped manually.")")")
         </pre>
 
         <button onclick="copyCode()">Copy Code</button>
@@ -110,112 +75,3 @@ try:
         time.sleep(0.5)
 except KeyboardInterrupt:
     print("Stopped manually.")
-
-        </pre>
-
-        <button onclick="copyCode()">Copy Code</button>
-    </div>
-
-    <script>
-        function copyCode() {
-            const code = document.getElementById('code').innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert('Code copied!');
-            });
-        }
-    </script>
-</body>
-</html>
-
-<!-- Basic HTML page to display the Python script so it can be copied easily -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copy Python Script</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-        .container { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; }
-        button { margin-top: 10px; padding: 10px 20px; background: #0078ff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #005fcc; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Random Copy-Paste Python Script</h2>
-        <p>Click below to copy the script:</p>
-
-        <pre id="code">
-from pynput import keyboard as kb
-import random
-import pyperclip
-import time
-
-texts = ["text1", "text2", "text3", "text4"]
-
-print("Running... Press F4 to stop.")
-
-stop_flag = False
-
-def on_press(key):
-    global stop_flag
-    if key == kb.Key.f4:
-        stop_flag = True
-        return False
-
-listener = kb.Listener(on_press=on_press)
-listener.start()
-
-try:
-    while True:
-        if stop_flag:
-            print("Stopped.")
-            break
-        chosen = random.choice(texts)
-        pyperclip.copy(chosen)
-        time.sleep(0.1)
-        # simulate typing
-        for ch in chosen:
-            kb.Controller().type(ch)
-        time.sleep(0.5)
-except KeyboardInterrupt:
-    print("Stopped manually.")")
-        </pre>
-
-        <button onclick="copyCode()">Copy Code</button>
-    </div>
-
-    <script>
-        function copyCode() {
-            const code = document.getElementById('code').innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert('Code copied!');
-            });
-        }
-    </script>
-</body>
-</html>
-
-import keyboard
-import random
-import pyperclip
-import time
-
-texts = ["text1", "text2", "text3", "text4"]
-
-print("Running... Press F4 to stop.")
-
-try:
-    while True:
-        if keyboard.is_pressed('f4'):
-            print("Stopped.")
-            break
-        chosen = random.choice(texts)
-        pyperclip.copy(chosen)
-        keyboard.write(chosen)
-        time.sleep(0.5)
-except KeyboardInterrupt:
-    print("Stopped manually.")
-
