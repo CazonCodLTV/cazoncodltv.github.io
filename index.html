@@ -63,24 +63,27 @@ except KeyboardInterrupt:
     </script>
 </body>
 </html>
-
 import keyboard
-import random
 import pyperclip
+import random
 import time
 
 texts = ["text1", "text2", "text3", "text4"]
 
 print("Running... Press F4 to stop.")
 
-try:
-    while True:
-        if keyboard.is_pressed('f4'):
-            print("Stopped.")
-            break
-        chosen = random.choice(texts)
-        pyperclip.copy(chosen)
-        keyboard.write(chosen)
-        time.sleep(0.5)
-except KeyboardInterrupt:
-    print("Stopped manually.")
+while True:
+    if keyboard.is_pressed("F4"):
+        print("Stopped.")
+        break
+
+    # pick random text
+    text = random.choice(texts)
+
+    # copy to clipboard
+    pyperclip.copy(text)
+
+    # paste
+    keyboard.press_and_release("ctrl+v")
+
+    time.sleep(0.05)
