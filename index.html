@@ -1,89 +1,52 @@
-<!-- Basic HTML page to display the Python script so it can be copied easily -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copy Python Script</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me – Cazon</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-        .container { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 800px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 8px; overflow-x: auto; }
-        button { margin-top: 10px; padding: 10px 20px; background: #0078ff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-        button:hover { background: #005fcc; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+            max-width: 600px;
+            margin: auto;
+            color: #222;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .block {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .label {
+            font-weight: bold;
+        }
+        .emergency {
+            color: #b00000;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Random Copy-Paste Python Script</h2>
-        <p>Click below to copy the script:</p>
+    <h1>Contact Me</h1>
 
-        <pre id="code">
-import pyautogui
-import random
-import pyperclip
-import time
-import ctypes
-
-texts = ["text1", "text2", "text3", "text4"]
-
-# Windows API for key detection
-user32 = ctypes.WinDLL('user32', use_last_error=True)
-
-print("Running... Press F4 to stop.")
-
-STOP_KEY = 0x73  # F4 virtual-key code
-
-def is_key_pressed(vk):
-    return user32.GetAsyncKeyState(vk) & 0x8000
-
-try:
-    while True:
-        if is_key_pressed(STOP_KEY):
-            print("Stopped.")
-            break
-        chosen = random.choice(texts)
-        pyperclip.copy(chosen)
-        pyautogui.hotkey('ctrl', 'v')
-        time.sleep(0.5)
-except KeyboardInterrupt:
-    print("Stopped manually.")")")")")
-        </pre>
-
-        <button onclick="copyCode()">Copy Code</button>
+    <div class="block">
+        <p><span class="label">Email:</span> cazon@cazon.pro</p>
+        <p><span class="label">Discord:</span> cazon2</p>
+        <p><span class="label">Telegram:</span> @cazon0</p>
     </div>
 
-    <script>
-        function copyCode() {
-            const code = document.getElementById('code').innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert('Code copied!');
-            });
-        }
-    </script>
+    <div class="block">
+        <p class="emergency">FOR ALL EMERGENCIES, PLEASE CONTACT: <br> cazon@cazon.pro</p>
+        <p>If I do not respond after multiple urgent emails, you may contact: <br> <strong>cazon753@gmail.com</strong></p>
+        <p>If I don't respond on either – I probably lost both accounts or am probably dead.</p>
+    </div>
+
 </body>
 </html>
-import keyboard
-import pyperclip
-import random
-import time
-
-texts = ["text1", "text2", "text3", "text4"]
-
-print("Running... Press F4 to stop.")
-
-while True:
-    if keyboard.is_pressed("F4"):
-        print("Stopped.")
-        break
-
-    # pick random text
-    text = random.choice(texts)
-
-    # copy to clipboard
-    pyperclip.copy(text)
-
-    # paste
-    keyboard.press_and_release("ctrl+v")
-
-    time.sleep(0.05)
